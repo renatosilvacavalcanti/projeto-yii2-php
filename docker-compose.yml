@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+      - "9004:9003"
+    volumes:
+      - .:/var/www/html
+  db:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: projeto_yii2
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
